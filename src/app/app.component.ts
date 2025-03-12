@@ -5,6 +5,7 @@ import { FeaturesComponent } from "./components/features/features.component";
 import { PricingComponent } from "./components/pricing/pricing.component";
 import { ContactFormComponent } from "./components/contact-form/contact-form.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { FaqComponent } from "./components/faq/faq.component";
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,9 @@ import { FooterComponent } from "./components/footer/footer.component";
     FeaturesComponent,
     PricingComponent,
     ContactFormComponent,
-    FooterComponent
-  ],
+    FooterComponent,
+    FaqComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

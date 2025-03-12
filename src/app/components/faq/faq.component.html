@@ -1,0 +1,27 @@
+<section class="container mx-auto my-12 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Perguntas Frequentes</h2>
+        <p class="text-gray-700 mt-2 mb-6 text-lg">Tudo o que você precisa saber sobre QR Codes inteligentes com IA</p>
+
+        <div class="space-y-4">
+            <div *ngFor="let faq of faqs; let i = index" class="border-b border-gray-300 py-4">
+                <button 
+                    class="w-full text-left text-xl font-semibold flex justify-between items-center focus:outline-none transition-colors duration-300 hover:text-blue-600"
+                    (click)="toggleFAQ(i)">
+                    {{ faq.question }}
+                    <span 
+                        class="text-blue-600 text-2xl transition-transform duration-300"
+                        [ngClass]="{'rotate-180': faq.isOpen}">
+                        {{ faq.isOpen ? '-' : '+' }}
+                    </span>
+                </button>
+                <div 
+                    class="overflow-hidden transition-all duration-300 ease-in-out"
+                    [ngClass]="faq.isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'"
+                >
+                    <p class="text-gray-700 mt-2">{{ faq.answer }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,11 @@
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  color: #2563eb; /* Azul mais vibrante no hover */
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
