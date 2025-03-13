@@ -7,27 +7,25 @@
 
         <div class="space-y-4">
             <div *ngFor="let faq of faqs(); let i = index"
-                class="border border-gray-300 rounded-lg overflow-hidden shadow-md transition-all duration-1500 ease-in-out">
+                class="border border-gray-300 rounded-lg overflow-hidden shadow-md">
                 
                 <!-- Botão de Pergunta -->
                 <button
-                    class="w-full text-left text-lg md:text-xl font-semibold flex justify-between items-center px-5 py-4 bg-gray-100 hover:bg-gray-200 transition-colors duration-1000 ease-in-out"
+                    class="w-full text-left text-lg md:text-xl font-semibold flex justify-between items-center px-5 py-4 bg-gray-100 hover:bg-gray-200 transition-colors duration-300 ease-in-out"
                     (click)="toggleFAQ(i)">
                     
                     <span class="flex-1">{{ faq.question }}</span>
                     
                     <!-- Ícone animado -->
-                    <span class="text-blue-600 text-2xl transition-transform duration-600 ease-in-out"
+                    <span class="text-blue-600 text-2xl transition-transform duration-300 ease-in-out"
                         [ngClass]="faq.isOpen ? 'animate-icon-open' : 'animate-icon-close'">
                         {{ faq.isOpen ? '−' : '+' }}
                     </span>
                 </button>
 
-                <!-- Resposta com animação de abertura e fechamento -->
-                <div class="overflow-hidden bg-gray-50"
-                    [ngClass]="faq.isOpen ? 'animate-panel-open' : 'animate-panel-close'">
-                    
-                    <p class="text-gray-700 whitespace-pre-line"
+                <!-- Resposta com padding adequado -->
+                <div class="overflow-hidden bg-gray-50 faq-content" *ngIf="faq.isOpen">
+                    <p class="text-gray-700 whitespace-pre-line opacity-0"
                         [ngClass]="faq.isOpen ? 'animate-text-in' : 'animate-text-out'"
                         [innerHTML]="faq.answer"></p>
                 </div>
