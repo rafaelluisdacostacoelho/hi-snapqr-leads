@@ -1,58 +1,92 @@
-<section id="contact" class="scroll-mt-24 py-20 bg-gradient-to-r from-primary to-secondary">
+<section id="contato" class="scroll-mt-24 py-20 bg-gradient-to-r from-primary to-secondary">
     <div class="container mx-auto text-center px-6">
-        <h2 class="text-4xl font-bold text-white">Let's Connect</h2>
-        <p class="text-lg text-gray-200 mt-4">Fill out the form below, and our team will reach out to you shortly.</p>
+        <h2 class="text-4xl font-bold text-white">Solicite uma Consulta Personalizada</h2>
+        <p class="text-lg text-gray-200 mt-4">Preencha o formulário abaixo e nossa equipe entrará em contato com você em
+            breve.</p>
 
-        <form class="mt-10 max-w-lg mx-auto bg-white p-8 shadow-2xl rounded-2xl">
-            <div class="mb-4">
-                <input type="text" placeholder="Full Name" 
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"
+            class="mt-10 max-w-lg mx-auto bg-white p-8 shadow-2xl rounded-2xl">
+
+            <!-- Nome Completo -->
+            <div class="mb-4 text-left">
+                <input type="text" formControlName="fullName" placeholder="Nome Completo"
+                    class="w-full p-3 border border-gray-300 rounded-lg"
+                    [class.border-red-500]="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid">
+                <div *ngIf="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid"
+                    class="text-red-500 text-sm mt-1">
+                    Nome é obrigatório
+                </div>
             </div>
-            
-            <div class="mb-4">
-                <input type="email" placeholder="Business Email" 
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition" required>
+
+            <!-- E-mail -->
+            <div class="mb-4 text-left">
+                <input type="email" formControlName="email" placeholder="E-mail Corporativo"
+                    class="w-full p-3 border border-gray-300 rounded-lg"
+                    [class.border-red-500]="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+                <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
+                    class="text-red-500 text-sm mt-1">
+                    E-mail inválido
+                </div>
             </div>
-            
-            <div class="mb-4">
-                <input type="tel" placeholder="Phone Number" 
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition">
+
+            <!-- Telefone -->
+            <div class="mb-4 text-left">
+                <input type="tel" formControlName="phone" placeholder="Número de Telefone"
+                    class="w-full p-3 border border-gray-300 rounded-lg">
             </div>
-            
-            <div class="mb-4">
-                <input type="text" placeholder="Company Name" 
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition">
+
+            <!-- Nome da Empresa -->
+            <div class="mb-4 text-left">
+                <input type="text" formControlName="company" placeholder="Nome da Empresa"
+                    class="w-full p-3 border border-gray-300 rounded-lg">
             </div>
-            
-            <div class="mb-4">
-                <input type="text" placeholder="Job Title" 
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition">
+
+            <!-- Cargo -->
+            <div class="mb-4 text-left">
+                <input type="text" formControlName="jobTitle" placeholder="Cargo"
+                    class="w-full p-3 border border-gray-300 rounded-lg">
             </div>
-            
-            <div class="mb-4">
-                <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition" required>
-                    <option value="" disabled selected>Interested In</option>
-                    <option value="consulting">Consulting Services</option>
-                    <option value="custom-development">Custom Software Development</option>
-                    <option value="integration">System Integration</option>
-                    <option value="support">Technical Support</option>
-                    <option value="other">Other</option>
+
+            <!-- Interesse -->
+            <div class="mb-4 text-left">
+                <select formControlName="interest" class="w-full p-3 border border-gray-300 rounded-lg">
+                    <option value="" disabled selected>Interesse em</option>
+                    <option value="consultoria">Serviços de Consultoria</option>
+                    <option value="desenvolvimento-personalizado">Desenvolvimento de Software Personalizado</option>
+                    <option value="integracao">Integração de Sistemas</option>
+                    <option value="suporte">Suporte Técnico</option>
+                    <option value="outro">Outro</option>
                 </select>
+                <div *ngIf="contactForm.get('interest')?.touched && contactForm.get('interest')?.invalid"
+                    class="text-red-500 text-sm mt-1">
+                    Escolha uma opção
+                </div>
             </div>
 
-            <div class="mb-4">
-                <textarea placeholder="Your Message" 
-                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:outline-none transition"></textarea>
-            </div>
-            
-            <div class="flex items-center mb-4">
-                <input type="checkbox" id="subscribe" class="mr-2">
-                <label for="subscribe" class="text-gray-600 text-sm">Subscribe to our newsletter for updates</label>
+            <!-- Mensagem -->
+            <div class="mb-4 text-left">
+                <textarea formControlName="message" placeholder="Sua Mensagem"
+                    class="w-full p-3 border border-gray-300 rounded-lg"></textarea>
             </div>
 
-            <button class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 w-full font-bold text-lg">
-                Submit Lead
+            <!-- Checkbox -->
+            <div class="flex items-center mb-4 text-left">
+                <input type="checkbox" id="inscricao" formControlName="subscribe" class="mr-2">
+                <label for="inscricao" class="text-gray-600 text-sm">Inscreva-se na nossa newsletter para
+                    atualizações</label>
+            </div>
+
+            <!-- Botão de Envio -->
+            <button type="submit"
+                class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 w-full font-bold text-lg"
+                [disabled]="loading()">
+                {{ loading() ? 'Enviando...' : 'Enviar Contato' }}
             </button>
+
+            <!-- Mensagem de Sucesso / Erro -->
+            <p *ngIf="successMessage()" class="text-green-500 mt-4 text-left">{{ successMessage() }}</p>
+            <p *ngIf="errorMessage()" class="text-red-500 mt-4 text-left">{{ errorMessage() }}</p>
+
         </form>
     </div>
 </section>
