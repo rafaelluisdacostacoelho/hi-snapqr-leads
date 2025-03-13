@@ -24,6 +24,7 @@ body {
     transform: translateY(0px);
   }
 }
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
