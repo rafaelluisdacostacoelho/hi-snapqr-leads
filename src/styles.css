@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* font-family: 'Poppins', sans-serif; */
+  /* font-family: 'Nunito', sans-serif; */
+  font-family: 'Rubik', sans-serif;
+}
+
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+p, li {
+  font-weight: 400;
+}

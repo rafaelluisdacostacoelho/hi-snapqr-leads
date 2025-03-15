@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { HeroSectionComponent } from "./components/hero-section/hero-section.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { FeaturesComponent } from "./components/features/features.component";
-import { TestimonialsComponent } from "./components/testimonials/testimonials.component";
 import { PricingComponent } from "./components/pricing/pricing.component";
 import { ContactFormComponent } from "./components/contact-form/contact-form.component";
 import { FooterComponent } from "./components/footer/footer.component";
+import { FaqComponent } from "./components/faq/faq.component";
 
 @Component({
   selector: 'app-root',
@@ -13,11 +13,11 @@ import { FooterComponent } from "./components/footer/footer.component";
     HeroSectionComponent,
     NavbarComponent,
     FeaturesComponent,
-    TestimonialsComponent,
     PricingComponent,
     ContactFormComponent,
-    FooterComponent
-  ],
+    FooterComponent,
+    FaqComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

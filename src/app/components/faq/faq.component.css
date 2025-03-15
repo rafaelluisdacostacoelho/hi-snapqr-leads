@@ -1,0 +1,60 @@
+/* Espaçamento dentro do painel */
+.faq-content {
+  padding: 16px 24px; /* Espaço maior para evitar que o texto fique colado nas bordas */
+}
+
+/* Texto apenas faz fade-in e fade-out */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutText {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Ícone girando suavemente */
+@keyframes rotateIconOpen {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotateIconClose {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Aplicação das animações */
+.animate-text-in {
+  animation: fadeInText 1s ease-in-out 0.6s forwards; /* O texto só aparece 0.6s depois da abertura */
+  opacity: 0;
+}
+
+.animate-text-out {
+  animation: fadeOutText 1s ease-in-out forwards; /* O texto desaparece antes do painel fechar */
+}
+
+.animate-icon-open {
+  animation: rotateIconOpen 0.6s ease-out forwards;
+}
+
+.animate-icon-close {
+  animation: rotateIconClose 0.6s ease-out forwards;
+}

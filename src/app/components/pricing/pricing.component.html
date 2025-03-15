@@ -1,44 +1,100 @@
-<section id="pricing" class="py-20 bg-white">
-    <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold text-gray-900">Choose Your Plan</h2>
-        <p class="text-gray-600 mt-4">Affordable pricing for everyone.</p>
+<section id="pricing" class="scroll-mt-24 py-20 bg-white">
+    <div class="container mx-auto text-center px-6">
+        <h2 class="text-3xl font-bold text-gray-900">Escolha o Melhor Plano para Você</h2>
+        <p class="text-gray-600 mt-4">
+            Gere QR Codes com tecnologia de IA e maximize seus resultados com rastreamento e análises inteligentes.
+        </p>
 
-        <div class="grid md:grid-cols-3 gap-10 mt-10">
-            <div class="p-6 shadow-md rounded-lg border">
-                <h3 class="text-xl font-semibold">Basic</h3>
-                <p class="text-gray-600 mt-2">$9.99/month</p>
-                <ul class="text-gray-600 mt-4 space-y-2">
-                    <li>✅ 5 Projects</li>
-                    <li>✅ Basic Support</li>
-                </ul>
-                <a href="#" class="mt-6 block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-                    Get Started
-                </a>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+            <!-- Plano Basic -->
+            <div
+                class="relative flex flex-col h-full p-6 shadow-md rounded-lg bg-gradient-to-br from-gray-700 to-gray-500 text-left">
+                <div class="flex-grow">
+                    <h3 class="text-xl font-semibold text-white text-center">Basic</h3>
+                    <p class="text-white text-center text-2xl font-bold mt-2">R$18/mês</p>
+                    <ul class="text-white mt-4 space-y-2">
+                        <li>1. Geração de QR Code com IA</li>
+                        <li>2. QR Codes Estáticos</li>
+                        <li>3. Personalização Básica (cores e formato)</li>
+                        <li>4. 25 QR Codes por mês</li>
+                        <li>5. Suporte Padrão</li>
+                    </ul>
+                </div>
+                <div class="mt-8 w-full">
+                    <a href="#contact" (click)="setContext('Basic')"
+                        class="block bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition text-center mt-auto btn-glow btn-hover-effect"
+                        aria-label="Assinar Plano Básico">
+                        Quero Este
+                    </a>
+                </div>
             </div>
 
-            <div class="p-6 shadow-md rounded-lg border">
-                <h3 class="text-xl font-semibold">Pro</h3>
-                <p class="text-gray-600 mt-2">$19.99/month</p>
-                <ul class="text-gray-600 mt-4 space-y-2">
-                    <li>✅ 20 Projects</li>
-                    <li>✅ Premium Support</li>
-                </ul>
-                <a href="#" class="mt-6 block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-                    Get Started
-                </a>
+            <!-- Plano Pro - Destacado -->
+            <div
+                class="relative flex flex-col h-full p-6 shadow-lg rounded-lg bg-gradient-to-br from-blue-700 to-blue-500 text-left">
+                <!-- Fita "Mais Popular" Reduzida -->
+                <div class="absolute top-[25px] left-[-5px] bg-red-600 text-white text-xs font-bold px-3 py-1"
+                    style="clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%); width: 105px;">
+                    Mais Popular
+                </div>
+                <div class="flex-grow">
+                    <h3 class="text-xl font-semibold text-white text-center">Profissional</h3>
+                    <p class="text-white text-center text-2xl font-bold mt-2">R$58/mês</p>
+                    <ul class="text-white mt-4 space-y-2">
+                        <li>1. QR Codes Inteligentes com IA</li>
+                        <li>2. QR Codes Dinâmicos</li>
+                        <li>3. Personalização Avançada (logotipo, cores, redirecionamento)</li>
+                        <li>4. 100 QR Codes por mês</li>
+                        <li>5. Relatórios de Acesso (número de scans, dispositivos)</li>
+                        <li>6. Suporte Prioritário</li>
+                    </ul>
+                </div>
+                <div class="mt-8 w-full">
+                    <a href="#contact" (click)="setContext('Profissional')"
+                        class="block bg-blue-800 text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition text-center mt-auto btn-glow btn-hover-effect"
+                        aria-label="Assinar Plano Pro">
+                        Quero Este
+                    </a>
+                </div>
             </div>
 
-            <div class="p-6 shadow-md rounded-lg border">
-                <h3 class="text-xl font-semibold">Enterprise</h3>
-                <p class="text-gray-600 mt-2">$49.99/month</p>
-                <ul class="text-gray-600 mt-4 space-y-2">
-                    <li>✅ Unlimited Projects</li>
-                    <li>✅ Dedicated Support</li>
-                </ul>
-                <a href="#" class="mt-6 block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-                    Get Started
-                </a>
+            <!-- Plano Enterprise -->
+            <div
+                class="relative flex flex-col h-full p-6 shadow-md rounded-lg bg-gradient-to-br from-purple-700 to-purple-500 text-left">
+                <div class="flex-grow">
+                    <h3 class="text-xl font-semibold text-white text-center">Empresa</h3>
+                    <p class="text-white text-center text-2xl font-bold mt-2">R$118/mês</p>
+                    <ul class="text-white mt-4 space-y-2">
+                        <li>1. Todos os recursos do Plano Pro</li>
+                        <li>2. QR Codes com Geolocalização</li>
+                        <li>3. Rastreamento em Tempo Real</li>
+                        <li>4. Relatórios Detalhados de Uso</li>
+                        <li>5. 300 QR Codes por mês</li>
+                        <li>6. Interação via API para automação</li>
+                        <li>7. Suporte Dedicado 24/7</li>
+                    </ul>
+                </div>
+                <div class="mt-8 w-full">
+                    <a href="#contact" (click)="setContext('Empresa')"
+                        class="block bg-purple-800 text-white px-6 py-3 rounded-lg hover:bg-purple-900 transition text-center mt-auto btn-glow btn-hover-effect"
+                        aria-label="Assinar Plano Enterprise">
+                        Quero Este
+                    </a>
+                </div>
             </div>
+        </div>
+
+        <!-- CTA para contato expandido -->
+        <div class="mt-12 bg-gradient-to-br from-gray-900 to-gray-700 text-white p-12 rounded-lg text-center w-full">
+            <h3 class="text-2xl font-bold">Precisa de outra solução?</h3>
+            <p class="text-gray-300 mt-4 text-lg">
+                Entre em contato conosco para discutir uma solução personalizada para o seu negócio.
+            </p>
+            <a href="#contact" (click)="setContext('FaleConosco')"
+                class="mt-6 inline-block bg-white text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-300 transition text-lg font-semibold btn-glow btn-hover-effect"
+                aria-label="Fale Conosco">
+                Fale Conosco
+            </a>
         </div>
     </div>
 </section>
