@@ -1,0 +1,44 @@
+/* Estilo para os campos com borda lilás */
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #a855f7; /* Lilás */
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: white;
+  font-size: 16px;
+}
+
+/* Efeito ao focar no campo - sem zoom */
+.input-field:focus {
+  border-color: #9333ea; /* Tom mais escuro de roxo */
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+}
+
+/* Checkbox maior */
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #a855f7;
+  border-radius: 4px;
+  accent-color: #9333ea; /* Cor personalizada para o checkbox */
+}
+
+/* Ajuste para os botões */
+.submit-button {
+  background-color: #a855f7;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 100%;
+}
+
+/* Efeito hover no botão - sem zoom */
+.submit-button:hover {
+  background-color: #9333ea;
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.7);
+}

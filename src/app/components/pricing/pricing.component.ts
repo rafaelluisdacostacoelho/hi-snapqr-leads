@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActionService } from '../../services/action.service';
 
 @Component({
   selector: 'app-pricing',
@@ -7,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './pricing.component.css'
 })
 export class PricingComponent {
+  constructor(private actionService: ActionService) {}
 
+  setContext(context: string) {
+    this.actionService.setContext(context);
+  }
 }

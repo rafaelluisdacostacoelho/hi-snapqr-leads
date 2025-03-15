@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { CommonModule } from '@angular/common';
 
 import { ContactService } from '../../services/contact.service';
+import { ActionService } from '../../services/action.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -17,7 +18,7 @@ export class ContactFormComponent {
   successMessage = signal('');
   errorMessage = signal('');
 
-  constructor(private fb: FormBuilder, private contactService: ContactService) {
+  constructor(private fb: FormBuilder, private contactService: ContactService, private actionService: ActionService) {
     this.contactForm = this.fb.group({
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -26,7 +27,8 @@ export class ContactFormComponent {
       jobTitle: [''],
       interest: ['', Validators.required],
       message: [''],
-      subscribe: [false]
+      subscribe: [false],
+      selectedPlan: [this.actionService.getContext()] // Adicionando o campo para rastrear o plano
     });
   }
 

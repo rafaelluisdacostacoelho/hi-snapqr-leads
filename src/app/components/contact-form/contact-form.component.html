@@ -7,10 +7,12 @@
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"
             class="mt-10 max-w-lg mx-auto bg-white p-8 shadow-2xl rounded-2xl">
 
+            <!-- Campo oculto para armazenar o contexto da ação -->
+            <input type="hidden" formControlName="context">
+
             <!-- Nome Completo -->
             <div class="mb-4 text-left">
-                <input type="text" formControlName="fullName" placeholder="Nome Completo"
-                    class="w-full p-3 border border-gray-300 rounded-lg"
+                <input type="text" formControlName="fullName" placeholder="Nome Completo" class="input-field no-zoom"
                     [class.border-red-500]="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid">
                 <div *ngIf="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid"
                     class="text-red-500 text-sm mt-1">
@@ -20,8 +22,7 @@
 
             <!-- E-mail -->
             <div class="mb-4 text-left">
-                <input type="email" formControlName="email" placeholder="E-mail Corporativo"
-                    class="w-full p-3 border border-gray-300 rounded-lg"
+                <input type="email" formControlName="email" placeholder="E-mail Corporativo" class="input-field no-zoom"
                     [class.border-red-500]="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
                 <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
                     class="text-red-500 text-sm mt-1">
@@ -31,25 +32,22 @@
 
             <!-- Telefone -->
             <div class="mb-4 text-left">
-                <input type="tel" formControlName="phone" placeholder="Número de Telefone"
-                    class="w-full p-3 border border-gray-300 rounded-lg">
+                <input type="tel" formControlName="phone" placeholder="Número de Telefone" class="input-field no-zoom">
             </div>
 
             <!-- Nome da Empresa -->
             <div class="mb-4 text-left">
-                <input type="text" formControlName="company" placeholder="Nome da Empresa"
-                    class="w-full p-3 border border-gray-300 rounded-lg">
+                <input type="text" formControlName="company" placeholder="Nome da Empresa" class="input-field no-zoom">
             </div>
 
             <!-- Cargo -->
             <div class="mb-4 text-left">
-                <input type="text" formControlName="jobTitle" placeholder="Cargo"
-                    class="w-full p-3 border border-gray-300 rounded-lg">
+                <input type="text" formControlName="jobTitle" placeholder="Cargo" class="input-field no-zoom">
             </div>
 
             <!-- Interesse -->
             <div class="mb-4 text-left">
-                <select formControlName="interest" class="w-full p-3 border border-gray-300 rounded-lg">
+                <select formControlName="interest" class="input-field no-zoom">
                     <option value="" disabled selected>Interesse em</option>
                     <option value="consultoria">Serviços de Consultoria</option>
                     <option value="desenvolvimento-personalizado">Desenvolvimento de Software Personalizado</option>
@@ -65,28 +63,24 @@
 
             <!-- Mensagem -->
             <div class="mb-4 text-left">
-                <textarea formControlName="message" placeholder="Sua Mensagem"
-                    class="w-full p-3 border border-gray-300 rounded-lg"></textarea>
+                <textarea formControlName="message" placeholder="Sua Mensagem" class="input-field no-zoom"></textarea>
             </div>
 
             <!-- Checkbox -->
             <div class="flex items-center mb-4 text-left">
-                <input type="checkbox" id="inscricao" formControlName="subscribe" class="mr-2">
+                <input type="checkbox" id="inscricao" formControlName="subscribe" class="custom-checkbox mr-3">
                 <label for="inscricao" class="text-gray-600 text-sm">Inscreva-se na nossa newsletter para
                     atualizações</label>
             </div>
 
             <!-- Botão de Envio -->
-            <button type="submit"
-                class="bg-accent text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 w-full font-bold text-lg"
-                [disabled]="loading()">
+            <button type="submit" class="submit-button no-zoom" [disabled]="loading()">
                 {{ loading() ? 'Enviando...' : 'Enviar Contato' }}
             </button>
 
             <!-- Mensagem de Sucesso / Erro -->
             <p *ngIf="successMessage()" class="text-green-500 mt-4 text-left">{{ successMessage() }}</p>
             <p *ngIf="errorMessage()" class="text-red-500 mt-4 text-left">{{ errorMessage() }}</p>
-
         </form>
     </div>
 </section>

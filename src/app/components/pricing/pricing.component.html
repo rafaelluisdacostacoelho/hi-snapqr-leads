@@ -2,12 +2,13 @@
     <div class="container mx-auto text-center px-6">
         <h2 class="text-3xl font-bold text-gray-900">Escolha o Melhor Plano para Você</h2>
         <p class="text-gray-600 mt-4">
-            Gere QR Codes inteligentes com tecnologia de IA e maximize seus resultados com rastreamento e automação.
+            Gere QR Codes com tecnologia de IA e maximize seus resultados com rastreamento e análises inteligentes.
         </p>
 
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
             <!-- Plano Basic -->
-            <div class="relative flex flex-col h-full p-6 shadow-md rounded-lg bg-gradient-to-br from-gray-700 to-gray-500 text-left">
+            <div
+                class="relative flex flex-col h-full p-6 shadow-md rounded-lg bg-gradient-to-br from-gray-700 to-gray-500 text-left">
                 <div class="flex-grow">
                     <h3 class="text-xl font-semibold text-white text-center">Basic</h3>
                     <p class="text-white text-center text-2xl font-bold mt-2">R$18/mês</p>
@@ -20,15 +21,17 @@
                     </ul>
                 </div>
                 <div class="mt-8 w-full">
-                    <a href="#" class="block bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition text-center mt-auto btn-glow btn-hover-effect"
+                    <a href="#contact" (click)="setContext('Basic')"
+                        class="block bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition text-center mt-auto btn-glow btn-hover-effect"
                         aria-label="Assinar Plano Básico">
-                        Assinar Plano
+                        Quero Este
                     </a>
                 </div>
             </div>
 
             <!-- Plano Pro - Destacado -->
-            <div class="relative flex flex-col h-full p-6 shadow-lg rounded-lg bg-gradient-to-br from-blue-700 to-blue-500 text-left">
+            <div
+                class="relative flex flex-col h-full p-6 shadow-lg rounded-lg bg-gradient-to-br from-blue-700 to-blue-500 text-left">
                 <!-- Fita "Mais Popular" Reduzida -->
                 <div class="absolute top-[25px] left-[-5px] bg-red-600 text-white text-xs font-bold px-3 py-1"
                     style="clip-path: polygon(0% 0%, 100% 0%, 92% 50%, 100% 100%, 0% 100%); width: 105px;">
@@ -47,15 +50,17 @@
                     </ul>
                 </div>
                 <div class="mt-8 w-full">
-                    <a href="#" class="block bg-blue-800 text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition text-center mt-auto btn-glow btn-hover-effect"
+                    <a href="#contact" (click)="setContext('Profissional')"
+                        class="block bg-blue-800 text-white px-6 py-3 rounded-lg hover:bg-blue-900 transition text-center mt-auto btn-glow btn-hover-effect"
                         aria-label="Assinar Plano Pro">
-                        Assinar Plano
+                        Quero Este
                     </a>
                 </div>
             </div>
 
             <!-- Plano Enterprise -->
-            <div class="relative flex flex-col h-full p-6 shadow-md rounded-lg bg-gradient-to-br from-purple-700 to-purple-500 text-left">
+            <div
+                class="relative flex flex-col h-full p-6 shadow-md rounded-lg bg-gradient-to-br from-purple-700 to-purple-500 text-left">
                 <div class="flex-grow">
                     <h3 class="text-xl font-semibold text-white text-center">Empresa</h3>
                     <p class="text-white text-center text-2xl font-bold mt-2">R$118/mês</p>
@@ -70,9 +75,10 @@
                     </ul>
                 </div>
                 <div class="mt-8 w-full">
-                    <a href="#" class="block bg-purple-800 text-white px-6 py-3 rounded-lg hover:bg-purple-900 transition text-center mt-auto btn-glow btn-hover-effect"
+                    <a href="#contact" (click)="setContext('Empresa')"
+                        class="block bg-purple-800 text-white px-6 py-3 rounded-lg hover:bg-purple-900 transition text-center mt-auto btn-glow btn-hover-effect"
                         aria-label="Assinar Plano Enterprise">
-                        Assinar Plano
+                        Quero Este
                     </a>
                 </div>
             </div>
@@ -84,7 +90,8 @@
             <p class="text-gray-300 mt-4 text-lg">
                 Entre em contato conosco para discutir uma solução personalizada para o seu negócio.
             </p>
-            <a href="#contact" class="mt-6 inline-block bg-white text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-300 transition text-lg font-semibold btn-glow btn-hover-effect"
+            <a href="#contact" (click)="setContext('FaleConosco')"
+                class="mt-6 inline-block bg-white text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-300 transition text-lg font-semibold btn-glow btn-hover-effect"
                 aria-label="Fale Conosco">
                 Fale Conosco
             </a>
