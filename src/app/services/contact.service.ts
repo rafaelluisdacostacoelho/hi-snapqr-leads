@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Contact {
+  origin: string;
+  action: string;
   fullName: string;
   email: string;
   phone?: string;
@@ -17,11 +19,12 @@ export interface Contact {
   providedIn: 'root'
 })
 export class ContactService {
-  private apiUrl = 'https://api.example.com/contacts'; // Altere para sua URL real
+  private apiUrl = 'https://api.hisnapqr.com/api/contacts';
 
   constructor(private http: HttpClient) {}
 
   sendContact(contact: Contact): Observable<any> {
+    contact.origin = 'hisnapqr__leads';
     return this.http.post(this.apiUrl, contact);
   }
 }

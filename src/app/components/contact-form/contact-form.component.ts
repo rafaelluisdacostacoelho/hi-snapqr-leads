@@ -20,6 +20,8 @@ export class ContactFormComponent {
 
   constructor(private fb: FormBuilder, private contactService: ContactService, private actionService: ActionService) {
     this.contactForm = this.fb.group({
+      origin: ['HiSnapQR Leads'],
+      action: [''],
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
