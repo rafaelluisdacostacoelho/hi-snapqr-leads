@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300mm"
+   height="60mm"
+   viewBox="0 0 300 60"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs1" /><path
+     id="rect15"
+     style="fill:#6a0dad;stroke:#f9f9f9;stroke-width:0.111622;stroke-dasharray:none"
+     d="m 5.6613312,0.05580896 c -3.1054181,0 -5.60551997,2.49301784 -5.60551997,5.58963794 V 54.354438 c 0,3.09662 2.50010187,5.589639 5.60551997,5.589639 H 54.50913 c 3.105418,0 5.605102,-2.493019 5.605102,-5.589639 V 5.6454469 c 0,-3.0966201 -2.499684,-5.58963794 -5.605102,-5.58963794 z m 0,3.99271564 H 54.50913 c 0.887261,0 1.60146,0.7121731 1.60146,1.5969223 V 54.354438 c 0,0.884749 -0.714199,1.597338 -1.60146,1.597338 H 5.6613312 c -0.8872619,0 -1.6014584,-0.712589 -1.6014584,-1.597338 V 5.6454469 c 0,-0.8847492 0.7141965,-1.5969223 1.6014584,-1.5969223 z M 8.0639325,8.0412413 V 28.004 H 28.083407 V 8.0412413 Z m 24.0231215,0 V 28.004 H 52.10653 V 8.0412413 Z M 12.067579,12.033546 H 24.079347 V 24.011282 H 12.067579 Z m 24.023534,0 H 48.10288 V 24.011282 H 36.091113 Z M 16.07164,16.026262 v 3.992303 h 4.003646 v -3.992303 z m 24.023122,0 v 3.992303 h 4.004059 V 16.026262 Z M 8.0639325,31.9963 V 51.959062 H 28.083407 V 31.9963 Z m 24.0231215,0 v 19.962762 h 4.004059 v -7.985024 h 4.938453 3.069255 V 31.9963 h -4.004059 v 7.985023 H 36.091113 V 31.9963 Z m 16.015826,0 v 3.992715 h 4.00365 V 31.9963 Z M 12.067579,35.989015 H 24.079347 V 47.966753 H 12.067579 Z m 4.004061,3.992308 v 3.992715 h 4.003646 v -3.992715 z m 32.03124,0 v 11.977739 h 4.00365 V 39.981323 Z m -8.008118,7.98543 v 3.992309 h 4.004059 v -3.992309 z" /><text
+     xml:space="preserve"
+     style="font-size:56.1122px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#6a0dad;stroke:none;stroke-width:2.53014;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+     x="68.687363"
+     y="53.209743"
+     id="text29"
+     transform="scale(1.0014196,0.99858242)"><tspan
+       id="tspan29"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56.1122px;font-family:Impact;-inkscape-font-specification:Impact;fill:#6a0dad;stroke:none;stroke-width:2.53014;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:stroke fill markers"
+       x="68.687363"
+       y="53.209743">Hi SnapQR</tspan></text></svg>

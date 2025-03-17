@@ -61,12 +61,12 @@ export class ContactFormComponent implements OnDestroy {
 
     this.contactService.sendContact(this.contactForm.value).subscribe({
       next: () => {
-        this.successMessage.set('Contato enviado com sucesso!');
+        this.successMessage.set('Obrigado, entraremos em contato em breve!');
         this.contactForm.reset();
         this.submitted.set(false);
       },
       error: () => {
-        this.errorMessage.set('Erro ao enviar contato. Tente novamente.');
+        this.errorMessage.set('Tente novamente mais tarde!');
       }
     }).add(() => this.loading.set(false));
   }

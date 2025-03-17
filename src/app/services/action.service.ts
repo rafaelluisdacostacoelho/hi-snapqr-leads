@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ActionService {
-  private actionSubject = new BehaviorSubject<string | null>(null);
+  private actionSubject = new BehaviorSubject<string>('Padrão');
   action$ = this.actionSubject.asObservable();
 
   setAction(Action: string) {

@@ -11,11 +11,13 @@
             class="mt-10 max-w-lg mx-auto bg-white p-8 shadow-2xl rounded-2xl">
 
             <!-- Campo oculto para armazenar o contexto da ação -->
-            <input type="hidden" formControlName="context">
+            <input type="hidden" formControlName="origin">
 
             <!-- Nome Completo -->
             <div class="mb-4 text-left">
-                <input type="text" formControlName="fullName" placeholder="Nome Completo" class="input-field no-zoom"
+                <label for="fullName" class="block text-gray-700 font-medium mb-1">Nome Completo</label>
+                <input id="fullName" type="text" formControlName="fullName" placeholder="Digite seu nome completo"
+                    class="input-field no-zoom"
                     [class.border-red-500]="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid">
                 <div *ngIf="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid"
                     class="text-red-500 text-sm mt-1">
@@ -25,33 +27,44 @@
 
             <!-- E-mail -->
             <div class="mb-4 text-left">
-                <input type="email" formControlName="email" placeholder="E-mail Corporativo" class="input-field no-zoom"
+                <label for="email" class="block text-gray-700 font-medium mb-1">E-mail Corporativo</label>
+                <input id="email" type="email" formControlName="email" placeholder="Digite seu e-mail"
+                    class="input-field no-zoom"
                     [class.border-red-500]="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
                 <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
                     class="text-red-500 text-sm mt-1">
-                    E-mail inválido
+                    <span *ngIf="contactForm.get('email')?.errors?.['required']">E-mail é obrigatório</span>
+                    <span *ngIf="contactForm.get('email')?.errors?.['email']">Formato de e-mail inválido</span>
                 </div>
             </div>
 
             <!-- Telefone -->
             <div class="mb-4 text-left">
-                <input type="tel" formControlName="phone" placeholder="Número de Telefone" class="input-field no-zoom">
+                <label for="phone" class="block text-gray-700 font-medium mb-1">Número de Telefone</label>
+                <input id="phone" type="tel" formControlName="phone" placeholder="Digite seu telefone"
+                    class="input-field no-zoom">
             </div>
 
             <!-- Nome da Empresa -->
             <div class="mb-4 text-left">
-                <input type="text" formControlName="company" placeholder="Nome da Empresa" class="input-field no-zoom">
+                <label for="company" class="block text-gray-700 font-medium mb-1">Nome da Empresa</label>
+                <input id="company" type="text" formControlName="company" placeholder="Digite o nome da empresa"
+                    class="input-field no-zoom">
             </div>
 
             <!-- Cargo -->
             <div class="mb-4 text-left">
-                <input type="text" formControlName="jobTitle" placeholder="Cargo" class="input-field no-zoom">
+                <label for="jobTitle" class="block text-gray-700 font-medium mb-1">Cargo</label>
+                <input id="jobTitle" type="text" formControlName="jobTitle" placeholder="Digite seu cargo"
+                    class="input-field no-zoom">
             </div>
 
             <!-- Interesse -->
             <div class="mb-4 text-left">
-                <select formControlName="interest" class="input-field no-zoom">
-                    <option value="" disabled selected>Interesse em</option>
+                <label for="interest" class="block text-gray-700 font-medium mb-1">Interesse</label>
+                <select id="interest" formControlName="interest" class="input-field no-zoom"
+                    [class.border-red-500]="contactForm.get('interest')?.touched && contactForm.get('interest')?.invalid">
+                    <option value="" disabled selected class="text-gray-500">Selecione uma opção</option>
                     <option value="consultoria">Serviços de Consultoria</option>
                     <option value="desenvolvimento-personalizado">Desenvolvimento de Software Personalizado</option>
                     <option value="integracao">Integração de Sistemas</option>
@@ -60,20 +73,21 @@
                 </select>
                 <div *ngIf="contactForm.get('interest')?.touched && contactForm.get('interest')?.invalid"
                     class="text-red-500 text-sm mt-1">
-                    Escolha uma opção
+                    Escolha uma opção válida
                 </div>
             </div>
 
             <!-- Mensagem -->
             <div class="mb-4 text-left">
-                <textarea formControlName="message" placeholder="Sua Mensagem" class="input-field no-zoom"></textarea>
+                <label for="message" class="block text-gray-700 font-medium mb-1">Mensagem</label>
+                <textarea id="message" formControlName="message" placeholder="Digite sua mensagem"
+                    class="input-field no-zoom"></textarea>
             </div>
 
             <!-- Checkbox -->
             <div class="flex items-center mb-4 text-left">
                 <input type="checkbox" id="inscricao" formControlName="subscribe" class="custom-checkbox mr-3">
-                <label for="inscricao" class="text-gray-600 text-sm">Inscreva-se na nossa newsletter para
-                    atualizações</label>
+                <label for="inscricao" class="text-gray-600 text-sm">Inscreva-se na nossa newsletter para atualizações</label>
             </div>
 
             <!-- Botão de Envio -->
@@ -82,8 +96,14 @@
             </button>
 
             <!-- Mensagem de Sucesso / Erro -->
-            <p *ngIf="successMessage()" class="text-green-500 mt-4 text-left">{{ successMessage() }}</p>
-            <p *ngIf="errorMessage()" class="text-red-500 mt-4 text-left">{{ errorMessage() }}</p>
+            <p *ngIf="successMessage()" class="bg-green-500 text-white mt-4 text-left p-3 rounded w-full">
+                {{ successMessage() }}
+            </p>
+
+            <p *ngIf="errorMessage()" class="bg-red-500 text-white mt-4 text-left p-3 rounded w-full">
+                {{ errorMessage() }}
+            </p>
+
         </form>
     </div>
 </section>
