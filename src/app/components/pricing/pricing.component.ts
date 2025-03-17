@@ -10,7 +10,7 @@ import { ActionService } from '../../services/action.service';
 export class PricingComponent {
   constructor(private actionService: ActionService) {}
 
-  setContext(context: string) {
-    this.actionService.setContext(context);
+  setAction(action: string) {
+    this.actionService.setAction(action);
   }
 }

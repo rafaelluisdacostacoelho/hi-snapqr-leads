@@ -1,9 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnDestroy, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { ContactService } from '../../services/contact.service';
 import { ActionService } from '../../services/action.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-contact-form',
@@ -11,15 +12,19 @@ import { ActionService } from '../../services/action.service';
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css'
 })
-export class ContactFormComponent {
+export class ContactFormComponent implements OnDestroy {
   contactForm: FormGroup;
   submitted = signal(false);
   loading = signal(false);
   successMessage = signal('');
   errorMessage = signal('');
 
+  private actionSubscription: Subscription;
+
   constructor(private fb: FormBuilder, private contactService: ContactService, private actionService: ActionService) {
     this.contactForm = this.fb.group({
+      origin: ['Hi SnapQR Leads'],
+      action: [this.actionService.getAction()],
       fullName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
@@ -28,8 +33,15 @@ export class ContactFormComponent {
       interest: ['', Validators.required],
       message: [''],
       subscribe: [false],
-      selectedPlan: [this.actionService.getContext()] // Adicionando o campo para rastrear o plano
     });
+
+    this.actionSubscription = this.actionService.action$.subscribe((newAction) => {
+      this.contactForm.patchValue({ action: newAction });
+    });
+  }
+
+  ngOnDestroy() {
+    this.actionSubscription.unsubscribe();
   }
 
   get f() {
@@ -44,17 +56,17 @@ export class ContactFormComponent {
     if (this.contactForm.invalid) {
       return;
     }
-
+    
     this.loading.set(true);
 
     this.contactService.sendContact(this.contactForm.value).subscribe({
       next: () => {
-        this.successMessage.set('Contato enviado com sucesso!');
+        this.successMessage.set('Obrigado, entraremos em contato em breve!');
         this.contactForm.reset();
         this.submitted.set(false);
       },
       error: () => {
-        this.errorMessage.set('Erro ao enviar contato. Tente novamente.');
+        this.errorMessage.set('Tente novamente mais tarde!');
       }
     }).add(() => this.loading.set(false));
   }
