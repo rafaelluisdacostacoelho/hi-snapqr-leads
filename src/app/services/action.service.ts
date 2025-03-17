@@ -5,14 +5,14 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ActionService {
-  private contextSource = new BehaviorSubject<string | null>(null);
-  context$ = this.contextSource.asObservable();
+  private actionSubject = new BehaviorSubject<string | null>(null);
+  action$ = this.actionSubject.asObservable();
 
-  setContext(context: string) {
-    this.contextSource.next(context);
+  setAction(Action: string) {
+    this.actionSubject.next(Action);
   }
 
-  getContext(): string | null {
-    return this.contextSource.value;
+  getAction(): string | null {
+    return this.actionSubject.getValue();
   }
 }
