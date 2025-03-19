@@ -13,6 +13,9 @@ module.exports = {
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
       },
+      scale: {
+        '102': '1.01' // Adiciona um efeito de hover BEM leve
+      }
     },
   },
   plugins: [],

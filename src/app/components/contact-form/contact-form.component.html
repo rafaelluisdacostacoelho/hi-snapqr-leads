@@ -1,8 +1,8 @@
 <section id="contact" class="scroll-mt-24 py-20 bg-gradient-to-r from-primary to-secondary">
     <div class="container mx-auto text-center px-6">
-        <h2 class="text-4xl font-bold text-white">
+        <h1 class="text-4xl font-bold text-white">
             Solicite uma Consulta Personalizada
-        </h2>
+        </h1> 
         <p class="text-lg text-gray-200 mt-4">
             Preencha o formulário abaixo e nossa equipe entrará em contato com você em breve.
         </p>
@@ -10,14 +10,11 @@
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()"
             class="mt-10 max-w-lg mx-auto bg-white p-8 shadow-2xl rounded-2xl">
 
-            <!-- Campo oculto para armazenar o contexto da ação -->
-            <input type="hidden" formControlName="origin">
-
             <!-- Nome Completo -->
             <div class="mb-4 text-left">
                 <label for="fullName" class="block text-gray-700 font-medium mb-1">Nome Completo</label>
                 <input id="fullName" type="text" formControlName="fullName" placeholder="Digite seu nome completo"
-                    class="input-field no-zoom"
+                    class="input-field no-zoom" autocomplete="additional-name"
                     [class.border-red-500]="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid">
                 <div *ngIf="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid"
                     class="text-red-500 text-sm mt-1">
@@ -29,7 +26,7 @@
             <div class="mb-4 text-left">
                 <label for="email" class="block text-gray-700 font-medium mb-1">E-mail Corporativo</label>
                 <input id="email" type="email" formControlName="email" placeholder="Digite seu e-mail"
-                    class="input-field no-zoom"
+                    class="input-field no-zoom" autocomplete="email"
                     [class.border-red-500]="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
                 <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
                     class="text-red-500 text-sm mt-1">
@@ -42,21 +39,21 @@
             <div class="mb-4 text-left">
                 <label for="phone" class="block text-gray-700 font-medium mb-1">Número de Telefone</label>
                 <input id="phone" type="tel" formControlName="phone" placeholder="Digite seu telefone"
-                    class="input-field no-zoom">
+                    class="input-field no-zoom" autocomplete="tel-national">
             </div>
 
             <!-- Nome da Empresa -->
             <div class="mb-4 text-left">
                 <label for="company" class="block text-gray-700 font-medium mb-1">Nome da Empresa</label>
                 <input id="company" type="text" formControlName="company" placeholder="Digite o nome da empresa"
-                    class="input-field no-zoom">
+                    class="input-field no-zoom" autocomplete="organization">
             </div>
 
             <!-- Cargo -->
             <div class="mb-4 text-left">
                 <label for="jobTitle" class="block text-gray-700 font-medium mb-1">Cargo</label>
                 <input id="jobTitle" type="text" formControlName="jobTitle" placeholder="Digite seu cargo"
-                    class="input-field no-zoom">
+                    class="input-field no-zoom" autocomplete="organization-title">
             </div>
 
             <!-- Interesse -->
