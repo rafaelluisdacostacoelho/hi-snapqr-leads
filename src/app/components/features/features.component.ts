@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-features',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './features.component.css'
 })
 export class FeaturesComponent {
+  @HostBinding('class.rotate-y-180') isFlipped = false;
 
+  flipCard() {
+    this.isFlipped = !this.isFlipped;
+  }
 }
