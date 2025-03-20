@@ -9,21 +9,17 @@
             Gere QR Codes com tecnologia de IA e maximize seus resultados com rastreamento e análises inteligentes.
         </p>
 
-        <!-- Toggle Mensal / Anual alinhado corretamente -->
+        <!-- Toggle Mensal / Anual -->
         <div class="flex justify-center items-center mt-6">
-            <div class="relative w-80 h-12 bg-gray-300 rounded-full overflow-hidden cursor-pointer flex items-center p-1" (click)="togglePricing()">
+            <div class="relative w-80 h-12 bg-gray-400 rounded-full overflow-hidden cursor-pointer flex items-center p-1"
+                (click)="togglePricing()">
 
-                <!-- Indicador deslizante corretamente posicionado -->
                 <div class="absolute top-1 left-1 w-[48.7%] h-10 bg-white rounded-full shadow-md transition-transform duration-300"
-                     [class.translate-x-[100%]]="isAnnual">
+                    [class.translate-x-[100%]]="isAnnual">
                 </div>
 
-                <!-- Conteúdo do toggle perfeitamente alinhado -->
                 <div class="relative z-10 flex w-full h-full items-center justify-between px-4">
-                    <!-- Mensal -->
                     <span class="text-base font-bold text-gray-900 w-1/2 mr-5 text-center">Mensal</span>
-
-                    <!-- Anual + Desconto -->
                     <div class="w-1/2 flex items-center justify-center gap-2">
                         <span class="text-base font-bold text-gray-900 ml-2">Anual</span>
                         <span class="text-xs font-bold text-white bg-green-800 px-2 py-1 rounded-md">
@@ -34,70 +30,80 @@
             </div>
         </div>
 
+        <!-- Cards de Planos -->
         <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-            <!-- Loop de Planos -->
             <div *ngFor="let plan of pricingPlans"
-                class="relative flex flex-col h-full p-6 shadow-md rounded-lg bg-gradient-to-br from-gray-700 to-gray-500 text-left">
+                class="relative flex flex-col h-full p-6 shadow-lg rounded-lg bg-gray-600 text-left text-white border">
+
                 <div class="flex-grow">
-                    <h3 class="text-xl font-semibold text-white text-center">{{ plan.name }}</h3>
-                    <p class="text-white text-center text-2xl font-bold mt-2">
-                        R$ {{ isAnnual ? plan.priceAnnual : plan.priceMonthly }}/{{ isAnnual ? 'ano' : 'mês' }}
+                    <h3 class="text-xl font-semibold text-center">{{ plan.name }}</h3>
+
+                    <!-- Exibição do Preço -->
+                    <p class="text-center text-2xl font-bold mt-2">
+                        <span *ngIf="isAnnual" class="text-gray-300 text-lg line-through">R$ {{ plan.priceMonthly * 12 }}</span>
+                        R$ {{ isAnnual ? plan.priceAnnual : plan.priceMonthly }} / {{ isAnnual ? 'ano' : 'mês' }}
                     </p>
-                    <ul class="text-white mt-4 space-y-2">
-                        <li *ngFor="let feature of plan.features">✔️ {{ feature }}</li>
+
+                    <ul class="mt-4 space-y-2">
+                        <li *ngFor="let feature of plan.features" class="flex items-center">
+                            🏷️ {{ feature }}
+                        </li>
                     </ul>
                 </div>
                 <div class="mt-8 w-full">
-                    <a href="#contact"
-                        class="block bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition text-center mt-auto">
+                    <a href="#contact" (click)="setAction(plan.name)"
+                        class="block bg-white text-gray-900 px-6 py-3 rounded-lg hover:bg-gray-100 transition text-center mt-auto font-semibold shadow-md hover:shadow-lg">
                         Quero saber mais
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Seção do Plano Vitalício -->
+        <!-- Seção do Plano Vitalício - Estilo Diamante -->
         <div
-            class="mt-16 bg-gray-100 p-10 rounded-lg flex flex-col md:flex-row items-center justify-between shadow-md border border-gray-300">
+            class="mt-16 p-10 rounded-lg flex flex-col md:flex-row items-center justify-between shadow-md border border-gray-600 bg-gradient-to-br from-primary to-secondary text-white">
 
-            <!-- Justificativa e Benefícios do Plano Vitalício -->
             <div class="md:w-2/3 text-left">
-                <h2 class="text-2xl font-bold text-gray-900">🔥 Oferta Vitalícia - Apenas Durante a Pré-Venda!</h2>
-                <p class="text-lg text-gray-600 mt-2">
+                <h2 class="text-2xl font-bold">🔥 Oferta Vitalícia - Apenas Durante a Pré-Venda!</h2>
+                <p class="text-lg mt-2">
                     Aproveite esta oportunidade única! Adquira o <b>acesso vitalício</b> ao nosso sistema de QR Codes
                     inteligentes <b>com um desconto especial de 75%</b>.
                     <b>Sem mensalidades, sem taxas futuras, e com todas as atualizações incluídas!</b>
                 </p>
                 <ul class="mt-4 space-y-2">
-                    <li *ngFor="let feature of lifetimePlan.features" class="flex items-center text-gray-700">
-                        ✅ {{ feature }}
+                    <li *ngFor="let feature of lifetimePlan.features" class="flex items-center">
+                        🥇 {{ feature }}
                     </li>
                 </ul>
-                <p class="text-red-600 font-semibold mt-4">⚠ Apenas algumas unidades disponíveis! Após a pré-venda, esta
-                    oferta será encerrada para sempre.</p>
+                <p class="text-yellow-300 font-semibold mt-4">
+                    ⚠️ Apenas algumas unidades disponíveis! Após a pré-venda, esta oferta será encerrada para sempre.
+                </p>
             </div>
 
             <!-- Card do Plano Vitalício -->
-            <div class="p-6 border rounded-lg shadow-lg bg-white mt-6 md:mt-0 md:w-1/3 text-center">
-                <h2 class="text-xl font-bold text-gray-900">{{ lifetimePlan.name }}</h2>
+            <div class="relative p-8 border rounded-lg shadow-xl bg-white mt-6 md:mt-0 md:w-1/3 text-center text-gray-900">
+                <h2 class="text-xl font-bold">{{ lifetimePlan.name }}</h2>
 
-                <!-- Preço antes e depois do desconto -->
                 <p class="text-lg text-gray-500 line-through mt-2">
-                    De: R$ {{ lifetimePlan.originalPrice }}
+                    R$ {{ lifetimePlan.originalPrice }}
                 </p>
                 <p class="text-4xl font-bold text-green-600 mt-1">
-                    Por: R$ {{ lifetimePlan.discountedPrice }}
-                    <span class="text-lg text-gray-500">/único</span>
+                    R$ {{ lifetimePlan.discountedPrice }}
+                    <span class="text-lg text-gray-500"></span>
                 </p>
-                <p class="text-sm text-gray-500 mt-1">Desconto de 75% aplicado automaticamente.</p>
+                <p class="text-sm text-gray-500 mt-1">Desconto de {{lifetimeDiscount}}% aplicado automaticamente.</p>
 
-                <!-- Botão CTA -->
                 <a href="#contact"
-                    class="mt-4 block text-center bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition text-lg font-semibold">
+                    class="mt-4 block text-center bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition text-lg font-semibold shadow-md">
                     Quero saber mais
                 </a>
 
                 <p class="text-sm text-gray-500 mt-3">🚀 Todas as atualizações futuras incluídas!</p>
+
+                <!-- Brilho Diamante -->
+                <div
+                    class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2 w-20 h-5 bg-white opacity-40 blur-md">
+                </div>
             </div>
         </div>
     </div>

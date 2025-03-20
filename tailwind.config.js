@@ -1,20 +1,19 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{html,ts}",
+    "./src/**/*.{html,ts,js,css}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: "#C026D3", // Rosa forte
-        secondary: "#6D28D9", // Roxo vibrante
-        accent: "#3B82F6", // Azul para botões
+        primary: "#C026D3",
+        secondary: "#6D28D9",
+        accent: "#3B82F6"
       },
       fontFamily: {
         sans: ["Poppins", "sans-serif"],
       },
       scale: {
-        '102': '1.01' // Adiciona um efeito de hover BEM leve
+        '102': '1.01'
       }
     },
   },
