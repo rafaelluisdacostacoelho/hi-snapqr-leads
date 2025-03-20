@@ -1,10 +1,13 @@
 <header class="w-full fixed top-0 left-0 z-50 bg-white shadow-md">
     <div class="container mx-auto flex justify-between items-center p-5">
       <!-- Logo -->
-      <a href="#" class="text-2xl font-bold text-blue-600">Hi SnapQR</a>
+      <a href="#" class="text-2xl font-bold text-blue-600">
+        <img >
+      </a>
   
       <!-- Menu -->
       <nav class="hidden md:flex space-x-6">
+        <a href="#home" class="text-gray-600 hover:text-blue-600">Início</a>
         <a href="#features" class="text-gray-600 hover:text-blue-600">Serviços</a>
         <a href="#pricing" class="text-gray-600 hover:text-blue-600">Preços</a>
         <a href="#faq" class="text-gray-600 hover:text-blue-600">Dúvidas</a>
@@ -26,6 +29,7 @@
   
     <!-- Mobile Menu -->
     <div *ngIf="isMenuOpen" class="md:hidden bg-white shadow-lg p-5">
+      <a href="#home" class="text-gray-600 hover:text-blue-600">Início</a>
       <a href="#features" class="block py-2 text-gray-600 hover:text-blue-600">Serviços</a>
       <a href="#pricing" class="block py-2 text-gray-600 hover:text-blue-600">Preços</a>
       <a href="#faq" class="block py-2 text-gray-600 hover:text-blue-600">Dúvidas</a>

@@ -10,14 +10,14 @@ import { CommonModule } from '@angular/common';
 export class FaqComponent {
   faqs = signal([
     {
-      question: "O que são QR Codes inteligentes com IA?",
+      question: "🧠 O que são QR Codes inteligentes com IA?",
       answer: `Os QR Codes inteligentes utilizam inteligência artificial para fornecer insights detalhados sobre sua utilização. 
       A IA analisa dados como geolocalização, horário de acesso, dispositivo utilizado e padrões de comportamento do usuário. 
       Isso permite ajustes estratégicos em tempo real para otimizar suas campanhas e melhorar seus resultados.`,
       isOpen: false
     },
     {
-      question: "Como posso usar QR Codes com IA para o meu negócio?",
+      question: "🏢 Como posso usar QR Codes com IA para o meu negócio?",
       answer: `Você pode usar QR Codes inteligentes em diversas aplicações, como:<br><br>
 
       <strong>📢 Marketing e Vendas</strong><br>
@@ -65,7 +65,7 @@ export class FaqComponent {
       isOpen: false
     },
     {
-      question: "Qual a vantagem de usar IA na análise de QR Codes?",
+      question: "💻 Qual a vantagem de usar IA na análise de QR Codes?",
       answer: `Diferente dos QR Codes tradicionais, os QR Codes com IA permitem:<br><br>
 
       • <strong>Inferências avançadas</strong> sobre quem está acessando os links.<br>
@@ -75,7 +75,7 @@ export class FaqComponent {
       isOpen: false
     },
     {
-      question: "Os QR Codes são seguros? Como a IA contribui para a segurança?",
+      question: "🛡️ Os QR Codes são seguros? Como a IA contribui para a segurança?",
       answer: `Sim! Nossa IA protege os QR Codes contra acessos indevidos e tentativas de manipulação. Com tecnologias avançadas, conseguimos:<br><br>
 
       • <strong>Detectar padrões incomuns de acesso</strong> e bloquear atividades suspeitas.<br>
