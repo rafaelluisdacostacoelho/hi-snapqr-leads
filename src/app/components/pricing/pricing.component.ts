@@ -11,14 +11,17 @@ import { CommonModule } from '@angular/common';
 })
 export class PricingComponent {
 
-  anualDiscountTax: number = 0.75;
+  anualDiscount: number = 25;
+  lifetimeDiscount: number = 50;
+
   isAnnual = false;
 
   pricingPlans = [
     {
+      id: 1,
       name: 'Plano Pessoal',
       priceMonthly: 15,
-      priceAnnual: 15 * 12 * this.anualDiscountTax,
+      priceAnnual: 15 * 12 * (100 - this.anualDiscount) / 100,
       features: [
         'Geração de QR Code com IA',
         'QR Codes Estáticos',
@@ -28,9 +31,10 @@ export class PricingComponent {
       ]
     },
     {
+      id: 2,
       name: 'Plano Profissional',
       priceMonthly: 45,
-      priceAnnual: 45 * 12 * this.anualDiscountTax,
+      priceAnnual: 45 * 12 * (100 - this.anualDiscount) / 100,
       features: [
         'QR Codes Inteligentes com IA',
         'QR Codes Dinâmicos',
@@ -41,9 +45,10 @@ export class PricingComponent {
       ]
     },
     {
+      id: 3,
       name: 'Plano Empresarial',
       priceMonthly: 135,
-      priceAnnual: 135 * 12 * this.anualDiscountTax,
+      priceAnnual: 135 * 12 * (100 - this.anualDiscount) / 100,
       features: [
         'Todos os recursos do Plano Profissional',
         'QR Codes com Geolocalização',
@@ -58,10 +63,10 @@ export class PricingComponent {
 
   // Calculando o valor original e o desconto do Plano Vitalício
   originalLifetimePrice = 3 * this.pricingPlans[2].priceAnnual; // 3 anos do plano mais caro
-  discountLifetimePrice = this.originalLifetimePrice * 0.25; // Aplicando 75% de desconto
+  discountLifetimePrice = this.originalLifetimePrice * (100 - this.lifetimeDiscount) / 100; // Aplicando 50% de desconto
 
   lifetimePlan = {
-    name: 'Plano Societário',
+    name: 'Plano Vitalício',
     originalPrice: this.originalLifetimePrice,
     discountedPrice: this.discountLifetimePrice,
     features: [

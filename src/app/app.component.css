@@ -1,6 +1,6 @@
 .separator {
     height: 2px;
     width: 60%;
-    margin: 50px auto;
+    margin: 0 auto;
     background: linear-gradient(to right, transparent, #ccc, transparent);
 }

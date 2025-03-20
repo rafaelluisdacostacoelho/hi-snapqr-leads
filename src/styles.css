@@ -10,7 +10,6 @@ body {
   font-family: 'Nunito', sans-serif;
 }
 
-
 @keyframes float {
   0% {
     transform: translateY(0px);
