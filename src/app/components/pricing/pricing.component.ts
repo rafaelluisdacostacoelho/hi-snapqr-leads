@@ -18,6 +18,7 @@ export class PricingComponent {
   anualDiscount: number = 25;
   lifetimeDiscount: number = 50;
 
+  isLoading = false;
   isAnnual = false;
 
   pricingPlans = [
@@ -99,6 +100,7 @@ export class PricingComponent {
   }
 
   goToCheckout() {
+    this.isLoading = true;
     this.stripeCheckoutService
       .createCheckoutSession(
         environment.stripe.lifetimePlan.productId,
@@ -109,8 +111,8 @@ export class PricingComponent {
         next: (response: any) => {
           window.location.href = response.url;
         },
-        error: (error: any) => {
-          console.error(error);
+        error: () => {
+          this.isLoading = false;
         }
       });
   }
