@@ -114,16 +114,14 @@
 
                 <div class="mt-auto pt-8">
                     <button (click)="goToCheckout()" [disabled]="isLoading"
-                        class="text-center m-auto bg-fuchsia-600 hover:bg-fuchsia-800 text-white px-5 py-2 rounded-lg  transition text-lg font-semibold shadow-md flex items-center justify-center gap-2 min-w-[160px]">
+                        class="text-center m-auto bg-fuchsia-600 hover:bg-fuchsia-800 text-white px-5 py-2 rounded-lg transition text-lg font-semibold shadow-md flex items-center justify-center gap-2 min-w-[160px]">
 
-                        <!-- Spinner visível quando está carregando -->
-                        <svg *ngIf="isLoading" class="animate-spin h-5 w-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
-                            </circle>
-                            <path class="opacity-75" fill="currentColor"
-                                d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 018 8h-4l3 3 3-3h-4a8 8 0 01-8 8v-4l-3 3 3 3v-4a8 8 0 01-8-8z">
-                            </path>
+                        <!-- Spinner mais discreto -->
+                        <svg *ngIf="isLoading" class="h-5 w-5 animate-spin text-white"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+                            <path d="M12 2a10 10 0 0110 10" stroke-opacity="0.75"></path>
                         </svg>
 
                         <!-- Texto muda dinamicamente -->
