@@ -12,26 +12,14 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   imports: [
-    HeroSectionComponent,
-    NavbarComponent,
-    FeaturesComponent,
-    PricingComponent,
-    ContactFormComponent,
-    FooterComponent,
-    FaqComponent,
+    CommonModule,
     RouterOutlet,
-    CommonModule
+    NavbarComponent,
+    FooterComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  isCheckoutPage: boolean = false;
-
-  constructor(private router: Router) {
-    this.router.events.subscribe(() => {
-      this.isCheckoutPage = this.router.url.includes('/checkout-success') || this.router.url.includes('/checkout-cancel');
-    });
-  }
 
 }
