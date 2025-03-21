@@ -20,4 +20,11 @@ export class NavbarComponent {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  closeMenu(actionLabel?: string) {
+    if (actionLabel) {
+      this.setAction(actionLabel);
+    }
+    this.isMenuOpen = false;
+  }
 }

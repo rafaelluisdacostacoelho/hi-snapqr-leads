@@ -62,19 +62,19 @@
 
         <!-- Seção do Plano Vitalício -->
         <div id="promotion"
-            class="scroll-mt-36 mt-20 relative w-full mx-auto flex flex-col md:flex-row items-stretch text-white">
+            class="scroll-mt-24 md:scroll-mt-36 mt-20 relative w-full mx-auto flex flex-col md:flex-row items-stretch text-white">
             <!-- Texto da Oferta - 2/3 da largura -->
             <div
                 class="w-full md:w-2/3 text-left flex flex-col justify-between p-6 border-gray-600 bg-gradient-to-br from-primary to-secondary shadow-md border rounded-t-lg md:rounded-tl-lg md:rounded-tr-none rounded-b-none md:rounded-bl-lg md:rounded-br-none">
                 <div>
-                    <h2 class="text-2xl font-bold">🔥 Oferta Vitalícia - Apenas Durante a Pré-Venda!</h2>
-                    <p class="text-xs mt-2">
+                    <h2 class="text-2xl md:text-3xl font-bold">🔥 Oferta de Pré-Venda</h2>
+                    <p class="text-xs md:text-lg mt-2">
                         Aproveite esta oportunidade única! Adquira o <b>acesso vitalício</b> ao nosso sistema de QR
                         Codes
                         inteligentes <b>com um desconto especial de {{lifetimeDiscount}}%</b>.
                         <b>Sem mensalidades, sem taxas futuras, e com todas as atualizações incluídas!</b>
                     </p>
-                    <ul class="text-xs mt-4 space-y-2">
+                    <ul class="text-xs md:text-lg mt-4 space-y-2">
                         <li *ngFor="let feature of lifetimePlan.features" class="flex items-center">
                             🥇 {{ feature }}
                         </li>
@@ -101,10 +101,10 @@
                 <div>
                     <h2 class="text-3xl font-bold">{{ lifetimePlan.name }}</h2>
 
-                    <p class="text-lg text-gray-500 line-through mt-4 md:mt-10">
+                    <p class="text-lg text-gray-500 line-through mt-4 md:mt-24">
                         {{ lifetimePlan.originalPrice | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                     </p>
-                    <p class="text-3xl md:text-5xl font-bold text-green-600 mt-1">
+                    <p class="text-3xl md:text-5xl font-bold text-fuchsia-600 mt-1">
                         {{ lifetimePlan.discountedPrice | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                     </p>
                     <p class="text-sm text-gray-500 mt-1">
@@ -114,7 +114,7 @@
 
                 <div class="mt-auto pt-8">
                     <button (click)="goToCheckout()" [disabled]="isLoading"
-                        class="text-center m-auto bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition text-lg font-semibold shadow-md flex items-center justify-center gap-2 min-w-[160px]">
+                        class="text-center m-auto bg-fuchsia-600 hover:bg-fuchsia-800 text-white px-5 py-2 rounded-lg  transition text-lg font-semibold shadow-md flex items-center justify-center gap-2 min-w-[160px]">
 
                         <!-- Spinner visível quando está carregando -->
                         <svg *ngIf="isLoading" class="animate-spin h-5 w-5 text-white"
