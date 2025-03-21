@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { ActionService } from '../../services/action.service';
 import { StripeCheckoutService } from '../../services/stripe-checkout.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-pricing',
@@ -83,9 +84,6 @@ export class PricingComponent {
     ]
   };
 
-  private readonly productId: string = 'prod_RymIt4u0nXQ8gV';
-  private readonly priceId: string = 'price_1R4ojTK1X1BwQjLlqrfuHF7H';
-
   constructor(
     private actionService: ActionService,
     private stripeCheckoutService: StripeCheckoutService,
@@ -102,7 +100,11 @@ export class PricingComponent {
 
   goToCheckout() {
     this.stripeCheckoutService
-      .createCheckoutSession(this.productId, this.priceId)
+      .createCheckoutSession(
+        environment.stripe.lifetimePlan.productId,
+        environment.stripe.lifetimePlan.priceId,
+        environment.stripe.lifetimePlan.couponId
+      )
       .subscribe({
         next: (response: any) => {
           window.location.href = response.url;

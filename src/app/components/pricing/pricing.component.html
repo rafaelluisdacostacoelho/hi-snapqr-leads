@@ -102,17 +102,19 @@
                     <h2 class="text-3xl font-bold">{{ lifetimePlan.name }}</h2>
 
                     <p class="text-lg text-gray-500 line-through mt-4 md:mt-16">
-                        R$ {{ lifetimePlan.originalPrice }}
+                        {{ lifetimePlan.originalPrice | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                     </p>
                     <p class="text-6xl font-bold text-green-600 mt-1">
-                        R$ {{ lifetimePlan.discountedPrice }}
+                        {{ lifetimePlan.discountedPrice | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                     </p>
-                    <p class="text-sm text-gray-500 mt-1">Desconto de {{lifetimeDiscount}}% aplicado automaticamente.
+                    <p class="text-sm text-gray-500 mt-1">
+                        Desconto de {{lifetimeDiscount}}% aplicado automaticamente.
                     </p>
                 </div>
 
                 <div class="mt-auto pt-8">
-                    <button (click)="goToCheckout()" class="block text-center m-auto bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition text-lg font-semibold shadow-md">
+                    <button (click)="goToCheckout()"
+                        class="block text-center m-auto bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition text-lg font-semibold shadow-md">
                         Comprar agora
                     </button>
                 </div>

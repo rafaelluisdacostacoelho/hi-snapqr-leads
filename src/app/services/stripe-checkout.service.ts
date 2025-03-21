@@ -11,7 +11,7 @@ export class StripeCheckoutService {
 
   constructor(private http: HttpClient) { }
 
-  createCheckoutSession(productId: string, priceId: string) {
-    return this.http.post<CheckoutResponse>(`${environment.apiUrl}/api/presales`, { productId, priceId });
+  createCheckoutSession(productId: string, priceId: string, couponId: string) {
+    return this.http.post<CheckoutResponse>(`${environment.apiUrl}/api/presales`, { productId, priceId, couponId });
   }
 }
