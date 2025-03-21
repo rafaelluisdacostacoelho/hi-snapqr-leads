@@ -61,59 +61,8 @@
         </div>
 
         <!-- Seção do Plano Vitalício -->
-        <!-- <div id="promotion"
-            class="mt-16 p-10 rounded-lg flex flex-col md:flex-row items-center justify-between shadow-md border border-gray-600 bg-gradient-to-br from-primary to-secondary text-white">
-
-            <div class="md:w-2/3 text-left">
-                <h2 class="text-2xl font-bold">🔥 Oferta Vitalícia - Apenas Durante a Pré-Venda!</h2>
-                <p class="text-lg mt-2">
-                    Aproveite esta oportunidade única! Adquira o <b>acesso vitalício</b> ao nosso sistema de QR Codes
-                    inteligentes <b>com um desconto especial de {{lifetimeDiscount}}%</b>.
-                    <b>Sem mensalidades, sem taxas futuras, e com todas as atualizações incluídas!</b>
-                </p>
-                <ul class="mt-4 space-y-2">
-                    <li *ngFor="let feature of lifetimePlan.features" class="flex items-center">
-                        🥇 {{ feature }}
-                    </li>
-                </ul>
-                <p class="text-yellow-300 font-semibold mt-4">
-                    ⚠️ Apenas algumas unidades disponíveis! Após a pré-venda, esta oferta será encerrada para sempre.
-                </p>
-            </div>
-
-            <div
-                class="relative p-8 border rounded-lg shadow-xl bg-white mt-6 md:mt-0 md:w-1/3 text-center text-gray-900">
-                <div>
-                    <h3 class="text-xl font-bold">{{ lifetimePlan.name }}</h3>
-
-                    <p class="text-lg text-gray-500 line-through mt-2">
-                        R$ {{ lifetimePlan.originalPrice }}
-                    </p>
-                    <p class="text-4xl font-bold text-green-600 mt-1">
-                        R$ {{ lifetimePlan.discountedPrice }}
-                        <span class="text-lg text-gray-500"></span>
-                    </p>
-                    <p class="text-sm text-gray-500 mt-2 mb-4">
-                        Desconto de {{lifetimeDiscount}}% aplicado automaticamente.
-                    </p>
-                </div>
-
-                <div class="mt-auto">
-                    <a href="#contact"
-                        class="block text-center bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition text-lg font-semibold shadow-md">
-                        Comprar agora!
-                    </a>
-                </div>
-            </div>
-        </div> -->
-
-
-
-
-
-        <!-- Seção do Plano Vitalício -->
-        <div id="promotion" class="relative w-full mx-auto mt-16 flex flex-col md:flex-row items-stretch text-white">
-
+        <div id="promotion"
+            class="scroll-mt-24 py-20 relative w-full mx-auto mt-16 flex flex-col md:flex-row items-stretch text-white">
             <!-- Texto da Oferta - 2/3 da largura -->
             <div
                 class="w-full md:w-2/3 text-left flex flex-col justify-between p-6 border-gray-600 bg-gradient-to-br from-primary to-secondary shadow-md border rounded-t-lg md:rounded-tl-lg md:rounded-tr-none rounded-b-none md:rounded-bl-lg md:rounded-br-none">
@@ -147,34 +96,30 @@
             </div>
 
             <!-- Card do Plano Vitalício - 1/3 da largura -->
-            <div class="w-full md:w-1/3 p-8 border rounded-lg shadow-xl bg-white text-center text-gray-900 flex flex-col justify-between h-full rounded-t-none md:rounded-tr-lg md:rounded-tl-none rounded-b-lg md:rounded-br-lg md:rounded-bl-none md:h-auto md:flex-grow">
+            <div
+                class="w-full md:w-1/3 p-8 border rounded-lg shadow-xl bg-white text-center text-gray-900 flex flex-col justify-between h-full rounded-t-none md:rounded-tr-lg md:rounded-tl-none rounded-b-lg md:rounded-br-lg md:rounded-bl-none md:h-auto md:flex-grow">
                 <div>
-                    <h2 class="text-xl font-bold">{{ lifetimePlan.name }}</h2>
+                    <h2 class="text-3xl font-bold">{{ lifetimePlan.name }}</h2>
 
-                    <p class="text-lg text-gray-500 line-through mt-4 md:mt-20">
-                        R$ {{ lifetimePlan.originalPrice }}
+                    <p class="text-lg text-gray-500 line-through mt-4 md:mt-16">
+                        {{ lifetimePlan.originalPrice | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                     </p>
-                    <p class="text-4xl font-bold text-green-600 mt-1">
-                        R$ {{ lifetimePlan.discountedPrice }}
+                    <p class="text-6xl font-bold text-green-600 mt-1">
+                        {{ lifetimePlan.discountedPrice | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
                     </p>
-                    <p class="text-sm text-gray-500 mt-1">Desconto de {{lifetimeDiscount}}% aplicado automaticamente.
+                    <p class="text-sm text-gray-500 mt-1">
+                        Desconto de {{lifetimeDiscount}}% aplicado automaticamente.
                     </p>
                 </div>
 
                 <div class="mt-auto pt-8">
-                    <a href="#contact"
-                        class="block text-center bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition text-lg font-semibold shadow-md">
-                        Quero saber mais
-                    </a>
+                    <button (click)="goToCheckout()"
+                        class="block text-center m-auto bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition text-lg font-semibold shadow-md">
+                        Comprar agora
+                    </button>
                 </div>
             </div>
         </div>
-
-
-
-
-
-
 
     </div>
 </section>

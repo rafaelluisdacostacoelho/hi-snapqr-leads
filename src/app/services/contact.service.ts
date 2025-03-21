@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Contact } from '../models/contact.interface';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
+import { ContactRequest } from '../models/requests/contact.request';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class ContactService {
   constructor(private http: HttpClient) {}
 
-  sendContact(contact: Contact): Observable<any> {
+  sendContact(contact: ContactRequest): Observable<any> {
     return this.http.post(`${environment.apiUrl}/api/contacts`, contact);
   }
 }

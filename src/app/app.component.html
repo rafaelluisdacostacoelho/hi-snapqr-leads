@@ -1,9 +1,17 @@
 <app-navbar></app-navbar>
-<app-hero-section></app-hero-section>
-<app-features></app-features>
-<div class="separator"></div>
-<app-pricing></app-pricing>
-<div class="separator"></div>
-<app-faq></app-faq>
-<app-contact-form></app-contact-form>
-<app-footer></app-footer>
+
+<!-- Mostra conteúdo principal apenas se NÃO estiver em checkout-success ou checkout-fail -->
+<ng-container *ngIf="!isCheckoutPage">
+  <app-hero-section></app-hero-section>
+  <app-features></app-features>
+  <div class="separator"></div>
+  <app-pricing></app-pricing>
+  <div class="separator"></div>
+  <app-faq></app-faq>
+  <app-contact-form></app-contact-form>
+</ng-container>
+
+<!-- Aqui carregamos as páginas de sucesso/erro quando necessário -->
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="!isCheckoutPage"></app-footer>
