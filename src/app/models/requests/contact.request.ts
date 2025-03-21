@@ -1,5 +1,5 @@
 
-export interface Contact {
+export interface ContactRequest {
   origin: string;
   action: string;
   fullName: string;

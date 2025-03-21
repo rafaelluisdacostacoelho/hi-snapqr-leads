@@ -25,7 +25,7 @@
               "src/apple-touch-icon.png",
               "src/favicon-16x16.png",
               "src/favicon-32x32.png",
-              "src/favicon.ico",
+              "src/favicon-v2.ico",
               "src/hisnapqr-preview.png",
               "src/robots.txt",
               "src/site.webmanifest",
@@ -98,7 +98,7 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon-v2.ico",
               {
                 "glob": "**/*",
                 "input": "public"

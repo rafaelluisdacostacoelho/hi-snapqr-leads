@@ -1,6 +1,9 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ActionService } from '../../services/action.service';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
+import { ActionService } from '../../services/action.service';
+import { StripeCheckoutService } from '../../services/stripe-checkout.service';
 
 @Component({
   selector: 'app-pricing',
@@ -80,7 +83,14 @@ export class PricingComponent {
     ]
   };
 
-  constructor(private actionService: ActionService) { }
+  private readonly productId: string = 'prod_RymIt4u0nXQ8gV';
+  private readonly priceId: string = 'price_1R4ojTK1X1BwQjLlqrfuHF7H';
+
+  constructor(
+    private actionService: ActionService,
+    private stripeCheckoutService: StripeCheckoutService,
+    private router: Router
+  ) { }
 
   setAction(action: string) {
     this.actionService.setAction(action);
@@ -88,5 +98,18 @@ export class PricingComponent {
 
   togglePricing() {
     this.isAnnual = !this.isAnnual;
+  }
+
+  goToCheckout() {
+    this.stripeCheckoutService
+      .createCheckoutSession(this.productId, this.priceId)
+      .subscribe({
+        next: (response: any) => {
+          window.location.href = response.url;
+        },
+        error: (error: any) => {
+          console.error(error);
+        }
+      });
   }
 }
